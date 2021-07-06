@@ -1,13 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-</body>
+<html>
+  <head>
+    <title><%= title %></title>
+    <script
+      src="https://kit.fontawesome.com/3b8424c68a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/stylesheets/registerTerms.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="left">
+          <a class="left--back-btn" href="/">Back</a>
+        </div>
+        <div class="title">회원가입</div>
+        <div class="right"></div>
+      </header>
+      <main>
+        <div class="welcome-message">
+          <p>어서 오세요</p>
+          <p>약관 동의가 필요해요</p>
+        </div>
+
+        <div class="check-container">
+          <button class="check-container--checkbox">
+            <i class="fas fa-check-square"></i>
+          </button>
+          <p class="check-container--label">전체 동의</p>
+        </div>
+
+        <hr />
+
+        <div class="check-container">
+          <button class="check-container--checkbox">
+            <i class="fas fa-check-square"></i>
+          </button>
+          <p class="check-container--label">배달의 민족 이용약관 동의</p>
+          <button class="check-container--detail-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="check-container">
+          <button class="check-container--checkbox checked">
+            <i class="fas fa-check-square"></i>
+          </button>
+          <p class="check-container--label">전자금융거래 이용약관 동의</p>
+          <button class="check-container--detail-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="check-container">
+          <button class="check-container--checkbox checked">
+            <i class="fas fa-check-square"></i>
+          </button>
+          <p class="check-container--label">개인정보 수집이용 동의</p>
+          <button class="check-container--detail-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="check-container">
+          <button class="check-container--checkbox">
+            <i class="fas fa-check-square"></i>
+          </button>
+          <p class="check-container--label">개인정보 제3자 제공 동의 (선택)</p>
+          <button class="check-container--detail-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="check-container">
+          <button class="check-container--checkbox">
+            <i class="fas fa-check-square"></i>
+          </button>
+          <p class="check-container--label">
+            마케팅 정보 메일, SMS 수신 동의 (선택)
+          </p>
+        </div>
+        <hr />
+      </main>
+    </div>
+  </body>
 </html>

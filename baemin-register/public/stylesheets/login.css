@@ -2,7 +2,7 @@
 @import url("mobile.css");
 
 :root {
-  --main-button-color: #28c0bc;
+  --main-mint-color: #28c0bc;
 }
 
 /* mobile.css override */
@@ -21,11 +21,12 @@ body {
 
 header {
   width: 100%;
+  height: 10%;
 }
 
 header > .left {
   font-size: 3rem;
-  margin-left: 1rem;
+  padding: 1rem;
 }
 
 .left--back-btn {
@@ -59,7 +60,7 @@ header > .left {
 }
 
 .login-form--submit-btn {
-  background-color: var(--main-button-color);
+  background-color: var(--main-mint-color);
   color: white;
   border-radius: 10px;
 }
