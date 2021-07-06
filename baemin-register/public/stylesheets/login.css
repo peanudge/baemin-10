@@ -9,21 +9,32 @@
 
 body {
   align-items: flex-start;
+  height: 100vh;
 }
 
 .container {
+  position: relative;
   background-color: white;
+  height: 100%;
   border: none;
 }
 
 header {
-  border-bottom: 1px solid #c0c0c0;
   width: 100%;
 }
 
 header > .left {
   font-size: 3rem;
   margin-left: 1rem;
+}
+
+.left--back-btn {
+  text-decoration: none;
+  color: black;
+}
+
+.left--back-btn:visited {
+  color: black;
 }
 
 /* Style for Login */
@@ -71,4 +82,23 @@ header > .left {
   color: #c0c0c0;
   font-size: 2rem;
   padding: 10px;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.register-comment {
+  font-size: 2rem;
+  color: #c0c0c0;
+}
+
+.register-comment--link {
+  text-decoration: none;
+  margin-left: 1rem;
+  color: var(--main-button-color);
 }
