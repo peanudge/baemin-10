@@ -52,3 +52,23 @@ header > .left {
   color: white;
   border-radius: 10px;
 }
+
+.auth-util {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-util--find-id-link,
+.auth-util--find-pw-link {
+  font-size: 2rem;
+  color: #c0c0c0;
+  padding: 10px;
+}
+
+.split-line {
+  content: "|";
+  color: #c0c0c0;
+  font-size: 2rem;
+  padding: 10px;
+}
