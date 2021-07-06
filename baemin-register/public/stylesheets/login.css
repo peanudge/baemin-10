@@ -1,0 +1,54 @@
+@import url("reset.css");
+@import url("mobile.css");
+
+:root {
+  --main-button-color: #28c0bc;
+}
+
+/* mobile.css override */
+
+body {
+  align-items: flex-start;
+}
+
+.container {
+  background-color: white;
+  border: none;
+}
+
+header {
+  border-bottom: 1px solid #c0c0c0;
+  width: 100%;
+}
+
+header > .left {
+  font-size: 3rem;
+  margin-left: 1rem;
+}
+
+/* Style for Login */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.login-form--id-input,
+.login-form--pw-input,
+.login-form--submit-btn {
+  margin: 2rem 0;
+  padding: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  border-style: none;
+  border-bottom: 2px solid #c0c0c0;
+}
+
+.login-form--submit-btn {
+  background-color: var(--main-button-color);
+  color: white;
+  border-radius: 10px;
+}
