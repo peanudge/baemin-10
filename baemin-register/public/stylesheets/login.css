@@ -1,0 +1,104 @@
+@import url("reset.css");
+@import url("mobile.css");
+
+:root {
+  --main-button-color: #28c0bc;
+}
+
+/* mobile.css override */
+
+body {
+  align-items: flex-start;
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  background-color: white;
+  height: 100%;
+  border: none;
+}
+
+header {
+  width: 100%;
+}
+
+header > .left {
+  font-size: 3rem;
+  margin-left: 1rem;
+}
+
+.left--back-btn {
+  text-decoration: none;
+  color: black;
+}
+
+.left--back-btn:visited {
+  color: black;
+}
+
+/* Style for Login */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.login-form--id-input,
+.login-form--pw-input,
+.login-form--submit-btn {
+  margin: 2rem 0;
+  padding: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  border-style: none;
+  border-bottom: 2px solid #c0c0c0;
+}
+
+.login-form--submit-btn {
+  background-color: var(--main-button-color);
+  color: white;
+  border-radius: 10px;
+}
+
+.auth-util {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-util--find-id-link,
+.auth-util--find-pw-link {
+  font-size: 2rem;
+  color: #c0c0c0;
+  padding: 10px;
+}
+
+.split-line {
+  content: "|";
+  color: #c0c0c0;
+  font-size: 2rem;
+  padding: 10px;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.register-comment {
+  font-size: 2rem;
+  color: #c0c0c0;
+}
+
+.register-comment--link {
+  text-decoration: none;
+  margin-left: 1rem;
+  color: var(--main-button-color);
+}
