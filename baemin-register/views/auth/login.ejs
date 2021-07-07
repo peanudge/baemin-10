@@ -1,13 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-</body>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <script
+      src="https://kit.fontawesome.com/3b8424c68a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="left">
+          <a class="left--back-btn" href="/"><i class="fas fa-times"></i></a>
+        </div>
+        <div class="title"></div>
+        <div class="right"></div>
+      </header>
+      <main>
+        <form class="login-form">
+          <input
+            class="login-form--id-input"
+            type="email"
+            placeholder="아이디 또는 이메일"
+          />
+          <input
+            class="login-form--pw-input"
+            type="password"
+            placeholder="비밀번호"
+          />
+          <button class="login-form--submit-btn">로그인</button>
+        </form>
+
+        <div class="auth-util">
+          <a class="auth-util--find-id-link">아이디 찾기</a>
+          <span class="split-line"> | </span>
+          <a class="auth-util--find-pw-link">비밀번호 찾기</a>
+        </div>
+      </main>
+      <footer>
+        <p class="register-comment">
+          혹시 배달의 민족이 처음이신가요?
+          <a class="register-comment--link" href="/auth/registerDetail"
+            >회원 가입</a
+          >
+        </p>
+      </footer>
+    </div>
+  </body>
 </html>

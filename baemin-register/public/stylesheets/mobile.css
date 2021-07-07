@@ -1,0 +1,43 @@
+:root {
+  --main-color: rgb(0, 185, 179);
+  --text-color: rgb(57, 57, 57);
+  --background-color: rgb(245, 245, 245);
+  --sub-text-color: rgb(168, 168, 168);
+  --alert-color: rgb(255, 135, 125);
+  --pink-color: rgb(246, 25, 125);
+  --green-color: rgb(75, 155, 63);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div, h1, h2, h3, h4, h5, h6, button, a {
+  color: var(--text-color);
+}
+
+.container {
+  width: 100vw;
+  background-color: var(--background-color);
+}
+
+header {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  background-color: white;
+}
+
+.underline {
+  border-bottom: 1px solid var(--background-color);
+}
+
+header > .title {
+  font-size: 18px;
+  font-weight: bold;
+}
