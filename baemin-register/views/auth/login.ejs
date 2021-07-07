@@ -20,11 +20,17 @@
         <div class="right"></div>
       </header>
       <main>
-        <form class="login-form" action="/" method="GET">
+        <form
+          class="login-form"
+          action="/auth/login"
+          method="POST"
+          enctype="application/x-www-form-urlencoded"
+        >
           <input
             id="login-id-input"
             class="login-form--id-input"
             type="email"
+            name="id"
             placeholder="아이디 또는 이메일"
           />
           <span class="login-form--id-warning-message"
@@ -34,6 +40,7 @@
             id="login-pw-input"
             class="login-form--pw-input"
             type="password"
+            name="pw"
             placeholder="비밀번호"
           />
           <span class="login-form--pw-warning-message"
