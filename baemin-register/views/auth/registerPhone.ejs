@@ -1,13 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/registerPhone.css">
+  <title>회원가입 - 휴대전화</title>
+  <script
+    src="https://kit.fontawesome.com/3b8424c68a.js"
+    crossorigin="anonymous"
+  ></script>
 </head>
 <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <div class="container">
+    <header>
+      <div class="left">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+        <div class="title">회원가입</div>
+        <div class="right disabled">다음</div>
+    </header>
+    <main>
+      <form>
+        <div class="input-container">
+          <label for="phone">
+            휴대전화
+            <div class="input-wrapper">
+              <input id="email" type="email">
+              <button class="input-icon before-icon">
+                <i class="fas fa-times-circle"></i>
+              </button>
+              <i class="fas fa-check input-icon"></i>
+            </div>
+          </label>
+        </div>
+        <div class="input-container">
+          <label for="confirm-number">
+            인증번호
+            <div class="input-wrapper">
+              <input id="confirm-number" type="text">
+              <i class="fas fa-check input-icon"></i>
+            </div>
+          </label>
+        </div>
+      </form>
+      <button class="full-button">
+        인증번호 받기
+      </button>
+      <button class="right-button text-button">인증번호 다시받기</button>
+    </main>
+  </div>
 </body>
 </html>

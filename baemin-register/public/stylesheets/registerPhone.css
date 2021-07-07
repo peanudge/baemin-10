@@ -1,0 +1,105 @@
+@import url("reset.css");
+@import url("mobile.css");
+
+.container {
+  background-color: white;
+}
+
+header .right {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+header .disabled {
+  color: var(--disabled-color);
+}
+
+main {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 36px;
+  font-size: 0.75rem;
+}
+.input-container > label {
+  vertical-align: top;
+  color: var(--sub-text-color);
+  transition: all 0.4s ease;
+}
+.input-container > label:focus-within {
+  color: var(--text-color);
+}
+.input-container .input-row-button {
+  padding: 6px 12px;
+  border-radius: 5px;
+  margin-left: 16px;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  transition: all 0.4s ease;
+}
+.input-container .disabled {
+  border: 1px solid var(--disabled-color);
+  color: var(--disabled-color);
+}
+.input-container .error-message {
+  margin-top: 6px;
+  color: var(--alert-color);
+  font-size: 0.5rem;
+}
+
+.input-wrapper {
+  display: flex;
+  margin-top: 8px;
+  position: relative;
+  flex: 1;
+}
+.input-wrapper > input {
+  width: 100%;
+  border-bottom: 1px solid var(--disabled-color);
+  padding: 0 30px 6px 0;
+  color: var(--text-color);
+  transition: all 0.4s ease;
+}
+.input-wrapper > input:focus {
+  border-bottom: 1px solid var(--text-color);
+}
+.input-wrapper > .input--error {
+  border-bottom: 1px solid var(--alert-color);
+}
+
+.input-icon {
+  position: absolute;
+  right: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: var(--main-color);
+}
+.input-icon i {
+  color: var(--text-color);
+}
+.before-icon {
+  right: 30px;
+}
+
+.full-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  border: 1px solid var(--background-color);
+}
+
+.right-button {
+  color: var(--main-color);
+  align-self: flex-end;
+  padding: 0;
+}
+
+.text-button {
+  border: none;
+}
