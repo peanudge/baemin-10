@@ -55,6 +55,6 @@ function main() {
   bindEvents();
 }
 
-window.onload = () => {
-  main();
-};
+window.addEventListener("DOMContentLoaded", () => {
+  bindEvents();
+});
