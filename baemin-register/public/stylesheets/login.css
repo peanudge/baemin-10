@@ -59,6 +59,24 @@ header > .left {
   border-bottom: 2px solid #c0c0c0;
 }
 
+.login-form--id-input.error,
+.login-form--pw-input.error {
+  border-bottom: 2px solid var(--alert-color);
+}
+
+.login-form--id-warning-message,
+.login-form--pw-warning-message {
+  color: var(--alert-color);
+  font-size: 2rem;
+  visibility: collapse;
+  text-align: center;
+}
+
+.login-form--id-warning-message.show,
+.login-form--pw-warning-message.show {
+  visibility: visible;
+}
+
 .login-form--submit-btn {
   background-color: var(--main-mint-color);
   color: white;
@@ -101,5 +119,5 @@ footer {
 .register-comment--link {
   text-decoration: none;
   margin-left: 1rem;
-  color: var(--main-button-color);
+  color: var(--main-color);
 }
