@@ -1,7 +1,17 @@
+:root {
+  --main-color: rgb(0, 185, 179);
+  --text-color: rgb(57, 57, 57);
+  --background-color: rgb(245, 245, 245);
+  --sub-text-color: rgb(168, 168, 168);
+  --alert-color: rgb(255, 135, 125);
+  --pink-color: rgb(246, 25, 125);
+  --green-color: rgb(75, 155, 63);
+  --disabled-color: rgb(200, 200, 200);
+}
+
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .container {
@@ -15,8 +25,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
-  width: 400px;
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  padding: 0 24px;
+}
+
+.underline {
+  border-bottom: 1px solid var(--background-color);
 }
 
 header > .title {
