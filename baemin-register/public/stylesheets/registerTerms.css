@@ -14,6 +14,12 @@ body {
   background-color: white;
   border: none;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
 }
 
 header {
@@ -125,16 +131,16 @@ header > .title {
 
 .next-step-btn {
   position: absolute;
-  bottom: 2rem;
+  bottom: 10px;
   width: 100%;
   height: 8%;
   border-radius: 15px;
   border-style: none;
-  background-color: gray;
+  background-color: var(--main-color);
   color: white;
   font-size: 3rem;
 }
 
-.next-step-btn.active {
-  background-color: var(--main-color);
+.next-step-btn:disabled {
+  background-color: var(--disabled-color);
 }

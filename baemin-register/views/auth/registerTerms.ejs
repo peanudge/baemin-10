@@ -7,6 +7,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="/stylesheets/registerTerms.css" />
+    <script type="module" defer src="/javascripts/registerTerms/index.js"></script>
   </head>
   <body>
     <div class="container">
@@ -23,16 +24,16 @@
           <p>약관 동의가 필요해요</p>
         </div>
 
-        <form class="terms-form">
+        <form id="terms-container" class="terms-form" action="/auth/registerTerms" method="POST">
           <div class="check-container">
-            <input type="checkbox" id="all-agree" name="all-agree-checkbox" />
-            <label for="all-agree"> 전체 동의 </label>
+            <input type="checkbox" id="all-agree-checkbox" name="all-agree-checkbox" />
+            <label for="all-agree-checkbox"> 전체 동의 </label>
           </div>
 
           <hr />
 
           <div class="check-container">
-            <input type="checkbox" id="terms-1"  name="terms-1" checked />
+            <input type="checkbox" id="terms-1"  name="terms-1" class="essential-terms" />
             <label for="terms-1">배달의 민족 이용약관 동의</label>
             <button class="check-container--detail-arrow">
               <i class="fas fa-chevron-right"></i>
@@ -40,7 +41,7 @@
           </div>
 
           <div class="check-container">
-            <input type="checkbox" id="terms-2" name="terms-2" checked />
+            <input type="checkbox" id="terms-2" name="terms-2" class="essential-terms" />
             <label for="terms-2">전자금융거래 이용약관 동의</label>
             <button class="check-container--detail-arrow">
               <i class="fas fa-chevron-right"></i>
@@ -48,7 +49,7 @@
           </div>
 
           <div class="check-container">
-            <input type="checkbox" id="terms-3" name="terms-3" checked />
+            <input type="checkbox" id="terms-3" name="terms-3" class="essential-terms" />
             <label for="terms-3">개인정보 수집이용 동의</label>
             <button class="check-container--detail-arrow">
               <i class="fas fa-chevron-right"></i>
@@ -56,8 +57,8 @@
           </div>
 
           <div class="check-container">
-            <input type="checkbox" id="terms-4" name="terms-4" />
-            <label for="terms-4"
+            <input type="checkbox" id="option-terms-1" name="option-terms-1" />
+            <label for="option-terms-1"
               >개인정보 제3자 제공 동의 (선택)</label
             >
             <button class="check-container--detail-arrow">
@@ -66,8 +67,8 @@
           </div>
 
           <div class="check-container">
-            <input type="checkbox" id="terms-5" name="terms-5" />
-            <label for="terms-5"
+            <input type="checkbox" id="option-terms-2" name="option-terms-2" />
+            <label for="option-terms-2"
               >마케팅 정보 메일, SMS 수신 동의 (선택)</label
             >
             <button class="check-container--detail-arrow">
@@ -78,28 +79,24 @@
           <hr />
 
           <div class="radio-container">
-            <input type="radio" id="age-over" name="age-retrict" value="over">
-            <label class="radio-container--label"  for="age-over">
+            <input type="radio" id="age-over-radio" name="age" value="over" checked>
+            <label class="radio-container--label"  for="age-over-radio">
               <p class="radio-container--label--title"> 만 14세 이상입니다.</p>
              </label>
           </div>
           <div class="radio-container">
-            <input type="radio" id="age-down" name="age-retrict" value="down">
+            <input type="radio" id="age-down-radio" name="age" value="down">
 
-            <label class="radio-container--label" for="age-down" >
+            <label class="radio-container--label" for="age-down-radio" >
               <p class="radio-container--label--title">만 14세 미만입니다.</p>
               <p class="radio-container--label--subtitle">
                 본인확인이 된 보호자의 배민 계정이 필요해요
               </p>
-            </div>
+            </label>
           </div>
-        
-
-          <input type="submit" class="next-step-btn active" value="다음으로"></button>
+          <input id="terms-submit-btn" type="submit" class="next-step-btn" value="다음으로" disabled></button>
         </form>
       </main>
     </div>
-
-    <script src="/javascripts/registerTerms/index.js"></script>
   </body>
 </html>
