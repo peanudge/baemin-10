@@ -91,6 +91,9 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+div {
+	box-sizing: border-box;
+}
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -127,4 +130,10 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+button, input, a {
+	outline: none;
+	background: none;
+	border: none;
+	text-decoration: none;
 }
