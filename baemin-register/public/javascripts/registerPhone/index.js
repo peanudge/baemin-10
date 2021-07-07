@@ -86,11 +86,10 @@ function resetValidation() {
   state.isPhoneNumberValidate = false;
 }
 
-function checkPhoneNumberValidation() {
-  const checkPhoneNumber = checkRegex('phone');
+function validatePhoneNumber() {
   const $phoneNumberInput = document.querySelector('#phone');
   const phoneNumber = $phoneNumberInput.value;
-  const result = checkPhoneNumber(phoneNumber);
+  const result = checkRegex.phone(phoneNumber);
 
   return result;
 }
@@ -125,7 +124,7 @@ function handlePhoneNumberInput({target}) {
     resetValidation();
   }
   if (inputValue.length === PHONE_NUMBER_MAX_LENGTH) {
-    const isValid = checkPhoneNumberValidation();
+    const isValid = validatePhoneNumber();
     if (isValid) {
       state.isPhoneNumberValidate = true;
       displayValidation(target.parentElement);
