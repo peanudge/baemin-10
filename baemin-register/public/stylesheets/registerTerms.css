@@ -68,22 +68,13 @@ header > .title {
   display: flex;
 }
 
-.check-container--checkbox {
-  background-color: white;
-  color: gray;
-  border-style: none;
-  font-size: 3rem;
-  margin-right: 1rem;
+.check-container > input[type="checkbox"] {
+  width: 3rem;
+  height: 3rem;
 }
 
-.check-container--checkbox.checked {
-  color: var(--main-color);
-  border-style: none;
-  font-size: 3rem;
-  margin-right: 1rem;
-}
-
-.check-container--label {
+.check-container > label {
+  margin-left: 1rem;
   font-size: 3rem;
   color: black;
 }
@@ -99,7 +90,7 @@ header > .title {
 .radio-container {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  padding-left: 2rem;
+  padding-left: 1rem;
   display: flex;
   align-items: center;
   background-color: #f6f6f6;
@@ -107,20 +98,13 @@ header > .title {
   margin-top: 20px;
 }
 
-.radio-container--checkbox--unchecked {
-  background-color: transparent;
-  color: gray;
-  border-style: none;
-  font-size: 3rem;
-  margin-right: 1rem;
+.radio-container > input[type="radio"] {
+  width: 3rem;
+  height: 3rem;
 }
 
-.radio-container--checkbox--checked {
-  color: var(--main-color);
-  background-color: transparent;
-  border-style: none;
-  font-size: 3rem;
-  margin-right: 1rem;
+.radio-container > label {
+  margin-left: 1rem;
 }
 
 .radio-container--label {
