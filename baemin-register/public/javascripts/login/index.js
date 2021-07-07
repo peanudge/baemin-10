@@ -51,10 +51,6 @@ function bindEvents() {
   $loginBtn.addEventListener("click", handleLoginBtnClick);
 }
 
-function main() {
-  bindEvents();
-}
-
 window.addEventListener("DOMContentLoaded", () => {
   bindEvents();
 });
