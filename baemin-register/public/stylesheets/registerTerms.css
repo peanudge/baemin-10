@@ -1,0 +1,140 @@
+@import url("reset.css");
+@import url("mobile.css");
+
+/* mobile.css override */
+
+body {
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0px 2rem;
+}
+
+.container {
+  position: relative;
+  background-color: white;
+  border: none;
+  height: 100%;
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
+}
+
+header > .left {
+  position: absolute;
+  left: 0;
+  font-size: 3rem;
+}
+
+header > .title {
+  font-size: 3rem;
+  padding: 1rem;
+}
+
+.left--back-btn {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.left--back-btn:visited {
+  color: black;
+}
+
+/* Style for Register Terms Page */
+
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.welcome-message p {
+  margin-top: 2rem;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.check-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+}
+
+.check-container > input[type="checkbox"] {
+  width: 3rem;
+  height: 3rem;
+}
+
+.check-container > label {
+  margin-left: 1rem;
+  font-size: 3rem;
+  color: black;
+}
+
+.check-container--detail-arrow {
+  position: absolute;
+  right: 0px;
+  background-color: white;
+  border-style: none;
+  font-size: 3rem;
+}
+
+.radio-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  background-color: #f6f6f6;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.radio-container > input[type="radio"] {
+  width: 3rem;
+  height: 3rem;
+}
+
+.radio-container > label {
+  margin-left: 1rem;
+}
+
+.radio-container--label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.radio-container--label--title {
+  font-size: 3rem;
+}
+
+.radio-container--label--subtitle {
+  font-size: 2rem;
+  color: gray;
+  margin-top: 10px;
+}
+
+.next-step-btn {
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+  height: 8%;
+  border-radius: 15px;
+  border-style: none;
+  background-color: gray;
+  color: white;
+  font-size: 3rem;
+}
+
+.next-step-btn.active {
+  background-color: var(--main-color);
+}
