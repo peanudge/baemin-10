@@ -59,14 +59,28 @@ header > .left {
   border-bottom: 2px solid #c0c0c0;
 }
 
+.login-form--id-input.error,
+.login-form--pw-input.error {
+  border-bottom: 2px solid var(--alert-color);
+}
+
+.login-form--id-warning-message,
+.login-form--pw-warning-message {
+  color: var(--alert-color);
+  font-size: 2rem;
+  visibility: collapse;
+  text-align: center;
+}
+
+.login-form--id-warning-message.show,
+.login-form--pw-warning-message.show {
+  visibility: visible;
+}
+
 .login-form--submit-btn {
   background-color: var(--main-mint-color);
   color: white;
   border-radius: 10px;
-}
-
-.login-form--submit-btn:disabled {
-  background-color: var(--disabled-color);
 }
 
 .auth-util {

@@ -20,22 +20,26 @@
         <div class="right"></div>
       </header>
       <main>
-        <form class="login-form">
+        <form class="login-form" action="/" method="GET">
           <input
             id="login-id-input"
             class="login-form--id-input"
             type="email"
             placeholder="아이디 또는 이메일"
           />
+          <span class="login-form--id-warning-message"
+            >아이디를 입력해주세요.</span
+          >
           <input
             id="login-pw-input"
             class="login-form--pw-input"
             type="password"
             placeholder="비밀번호"
           />
-          <button id="login-btn" class="login-form--submit-btn" disabled>
-            로그인
-          </button>
+          <span class="login-form--pw-warning-message"
+            >비밀번호를 입력해주세요.</span
+          >
+          <button id="login-btn" class="login-form--submit-btn">로그인</button>
         </form>
 
         <div class="auth-util">
