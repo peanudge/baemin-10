@@ -7,6 +7,7 @@
 header .right {
   font-size: 0.8rem;
   font-weight: 500;
+  color: var(--main-color);
 }
 header .disabled {
   color: var(--disabled-color);
@@ -70,18 +71,18 @@ main {
   border-bottom: 1px solid var(--alert-color);
 }
 
-.input-icon {
+.input-float-button-wrapper {
   position: absolute;
   right: 0;
-  padding: 0;
+}
+.input-float-button-wrapper i {
+  font-size: 1rem;
+  color: var(--sub-text-color);
+  margin-left: 8px;
+}
+.input-float-button-wrapper > .check-icon {
   font-size: 1rem;
   color: var(--main-color);
-}
-.input-icon i {
-  color: var(--text-color);
-}
-.before-icon {
-  right: 30px;
 }
 
 .full-button {

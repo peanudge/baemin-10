@@ -136,4 +136,5 @@ button, input, a {
 	background: none;
 	border: none;
 	text-decoration: none;
+  padding: 0;
 }
