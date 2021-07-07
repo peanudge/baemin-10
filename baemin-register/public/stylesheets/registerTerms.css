@@ -1,10 +1,6 @@
 @import url("reset.css");
 @import url("mobile.css");
 
-:root {
-  --main-mint-color: #28c0bc;
-}
-
 /* mobile.css override */
 
 body {
@@ -81,7 +77,7 @@ header > .title {
 }
 
 .check-container--checkbox.checked {
-  color: var(--main-mint-color);
+  color: var(--main-color);
   border-style: none;
   font-size: 3rem;
   margin-right: 1rem;
@@ -108,9 +104,7 @@ header > .title {
   align-items: center;
   background-color: #f6f6f6;
   border-radius: 15px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  height: 80px;
+  margin-top: 20px;
 }
 
 .radio-container--checkbox--unchecked {
@@ -122,7 +116,7 @@ header > .title {
 }
 
 .radio-container--checkbox--checked {
-  color: var(--main-mint-color);
+  color: var(--main-color);
   background-color: transparent;
   border-style: none;
   font-size: 3rem;
@@ -149,7 +143,7 @@ header > .title {
   position: absolute;
   bottom: 2rem;
   width: 100%;
-  height: 100px;
+  height: 8%;
   border-radius: 15px;
   border-style: none;
   background-color: gray;
@@ -158,5 +152,5 @@ header > .title {
 }
 
 .next-step-btn.active {
-  background-color: var(--main-mint-color);
+  background-color: var(--main-color);
 }
