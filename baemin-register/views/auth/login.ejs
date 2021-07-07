@@ -7,13 +7,14 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="/stylesheets/login.css" />
+    <script src="/javascripts/login/index.js"></script>
   </head>
   <body>
     <div class="container">
       <header>
         <div class="left">
           <!-- TODO: Back ICON -->
-          <a class="left--back-btn" href="/">Back</a>
+          <a class="left--back-btn" href="/"><i class="fas fa-times"></i></a>
         </div>
         <div class="title"></div>
         <div class="right"></div>
@@ -21,16 +22,20 @@
       <main>
         <form class="login-form">
           <input
+            id="login-id-input"
             class="login-form--id-input"
             type="email"
             placeholder="아이디 또는 이메일"
           />
           <input
+            id="login-pw-input"
             class="login-form--pw-input"
             type="password"
             placeholder="비밀번호"
           />
-          <button class="login-form--submit-btn">로그인</button>
+          <button id="login-btn" class="login-form--submit-btn" disabled>
+            로그인
+          </button>
         </form>
 
         <div class="auth-util">

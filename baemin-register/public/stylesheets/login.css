@@ -65,6 +65,10 @@ header > .left {
   border-radius: 10px;
 }
 
+.login-form--submit-btn:disabled {
+  background-color: var(--disabled-color);
+}
+
 .auth-util {
   margin-top: 20px;
   display: flex;
@@ -101,5 +105,5 @@ footer {
 .register-comment--link {
   text-decoration: none;
   margin-left: 1rem;
-  color: var(--main-button-color);
+  color: var(--main-color);
 }
