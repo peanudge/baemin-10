@@ -1,3 +1,4 @@
+import { default as DBG } from "debug";
 import createError from "http-errors";
 import express from "express";
 import path from "path";
@@ -9,19 +10,22 @@ import session from "express-session";
 import routes from "./routes/index.js";
 
 import { SQLITE3AccountStore } from "./models/account/sqlite/SQLITE3AccountStore.js";
-import { createMockAccounts } from "./mock/MockData.js";
+import { createAccountTable } from "./models/account/sqlite/account-sqlite3.js";
+
+import { createMockAccounts } from "./mock/mockData.js";
 
 const __dirname = path.resolve();
 
 dotenv.config();
 
+// Database Setting
 export const AccountStore = new SQLITE3AccountStore();
-
+await createAccountTable();
 if (process.env.MOCK_DATA) {
   await createMockAccounts();
 }
 
-console.log("DB FILE:", process.env.SQLITE_FILE);
+DBG.log("DB FILE PATH:", process.env.SQLITE_FILE);
 
 var app = express();
 
@@ -33,7 +37,14 @@ app.use(logger("dev"));
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(session({ secret: "keyboard cat", cookie: { maxAge: 60000 } }));
+app.use(
+  session({
+    secret: "woowahan10",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 },
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
