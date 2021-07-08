@@ -1,6 +1,6 @@
 import checkRegex from "/javascripts/utils/checkRegex.js";
 
-const EMAIL_CHECK_URL = `/api/account/id?id=${email}`;
+const EMAIL_CHECK_URL = "/api/account/id";
 
 const BIRTHDAY_FIRST_DIVISION_INDEX = 5;
 const BIRTHDAY_SECOND_DIVISION_INDEX = 8;
@@ -318,7 +318,7 @@ async function validateEmail({ target }) {
     const $emailValidationButton = document.querySelector("#validate-email");
     $emailValidationButton.removeEventListener("click", validateEmail);
 
-    const res = await fetch(EMAIL_CHECK_URL, {
+    const res = await fetch(EMAIL_CHECK_URL + `?id=${email}`, {
       method: "HEAD",
     });
 
