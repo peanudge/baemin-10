@@ -17,7 +17,7 @@ const ID_NO_MATCH_MSG = "존재하지 않는 아이디입니다.";
 const PASSWORD_NO_MATCH_MSG = "패스워드가 일치하지않습니다.";
 const TERMS_EMPTY_MSG = "필수 약관동의를 모두 확인해주세요.";
 
-var router = express.Router();
+const router = express.Router();
 
 router.get("/login", function (req, res, next) {
   const accountInSession = req.session[SESSION_AUTH_KEY];
