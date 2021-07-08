@@ -1,9 +1,9 @@
 import express from 'express';
 
-import check from './check/index.js';
+import account from './account/index.js';
 
 const router = express.Router();
 
-router.use('/check', check);
+router.use('/account', account);
 
 export default router;

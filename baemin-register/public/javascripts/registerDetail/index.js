@@ -293,14 +293,14 @@ async function validateEmail({target}) {
     const $emailValidationButton = document.querySelector('#validate-email');
     $emailValidationButton.removeEventListener('click', validateEmail);
     
-    const EMAIL_CHECK_URL = `http://localhost:3000/api/check/email?email=${email}`;
+    const EMAIL_CHECK_URL = `http://localhost:3000/api/account/id?id=${email}`;
     const res = await fetch(EMAIL_CHECK_URL, {
       method: 'HEAD',
     });
 
-    state.isEmailValidate = res.ok;
+    state.isEmailValidate = !res.ok;
     
-    if (res.ok) {
+    if (!res.ok) {
       $emailInput.setAttribute('disabled', true);
       undisplayErrorMessage($emailInput.parentElement);
       displayValidationMark(target.parentElement.querySelector('.input-wrapper'));
