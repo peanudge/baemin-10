@@ -1,12 +1,20 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+import createError from "http-errors";
+import express from "express";
+import path from "path";
+import cookieParser from "cookie-parser";
+import logger from "morgan";
+import dotenv from "dotenv";
 
-var indexRouter = require("./routes/index");
-var authRouter = require("./routes/auth");
+import indexRouter from "./routes/index.js";
+import authRouter from "./routes/auth.js";
 
+import { SQLITE3AccountStore } from "./models/account/sqlite/SQLITE3AccountStore.js";
+export const AccountStore = new SQLITE3AccountStore();
+
+dotenv.config();
+console.log("DB FILE:", process.env.SQLITE_FILE);
+
+const __dirname = path.resolve();
 var app = express();
 
 // view engine setup
@@ -44,4 +52,4 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-module.exports = app;
+export default app;

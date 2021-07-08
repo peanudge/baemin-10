@@ -1,29 +1,40 @@
-var express = require("express");
+import express from "express";
+import { AccountStore } from "../app.js";
+
 var router = express.Router();
 
-/* GET login page. */
 router.get("/login", function (req, res, next) {
   res.render("auth/login", { title: "Login" });
 });
 
-/* GET registerTerms page. */
+router.post("/login", async function (req, res, next) {
+  // TODO: this is example. need to implement authentication.
+  const { id, pw } = req.body;
+  if (id) {
+    const account = await AccountStore.retrieve(id);
+    if (account.password === pw) {
+      res.redirect("/");
+    }
+  }
+
+  // TODO: Add Error Message
+  res.render("auth/login", { title: "Login" });
+});
+
 router.get("/registerTerms", function (req, res, next) {
   res.render("auth/registerTerms", { title: "Register Terms" });
 });
 
-/* POST registerTerms page. */
 router.post("/registerTerms", function (req, res, next) {
   res.redirect("/auth/registerPhone");
 });
 
-/* GET registerPhone page. */
 router.get("/registerPhone", function (req, res, next) {
   res.render("auth/registerPhone", { title: "Register Phone" });
 });
 
-/* GET registerDetail page. */
 router.get("/registerDetail", function (req, res, next) {
   res.render("auth/registerDetail", { title: "Register Detail" });
 });
 
-module.exports = router;
+export default router;
