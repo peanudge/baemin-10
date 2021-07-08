@@ -19,6 +19,7 @@ section {
 .wide-button {
   display: flex;
   justify-content: space-between;
+  box-sizing: border-box;
   align-items: center;
   width: 100%;
   min-height: 55px;

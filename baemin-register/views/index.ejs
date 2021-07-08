@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인화면</title>
+    <title>배달의 민족 - MY 배민</title>
     <link rel='stylesheet' href='/stylesheets/index.css' />
     <script
       src="https://kit.fontawesome.com/3b8424c68a.js"
@@ -23,15 +23,24 @@
           <div class="banner">
             <img alt="광고" src="/assets/images/banner.png">
           </div>
-          <button class="wide-button">
-            <div class="wide-button__title-container row">
-              <img class="user-icon" alt="user-icon" src="/assets/icons/user.png">
-              <h4 class="title big">로그인해주세요</h4>
-            </div>
-            <div class="wide-button__icon">
-              <i class="fas fa-chevron-right"></i>
-            </div>
-          </button>
+          <% if (nickname) { %>
+            <button class="wide-button">
+              <div class="wide-button__title-container row">
+                <img class="user-icon" alt="user-icon" src="/assets/icons/user.png">
+                <h4 class="title big">귀한분, <%= nickname %>님</h4>
+              </div>
+            </button>
+          <% } else { %>
+            <a class="wide-button" href="/auth/login">
+              <div class="wide-button__title-container row">
+                <img class="user-icon" alt="user-icon" src="/assets/icons/user.png">
+                <h4 class="title big">로그인해주세요</h4>
+              </div>
+              <div class="wide-button__icon">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            </a>
+          <% } %>
           <div class="grid-button-container">
             <div class="grid-button-row">
               <button class="grid-button">
