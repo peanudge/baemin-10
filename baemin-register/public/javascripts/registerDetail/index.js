@@ -183,10 +183,10 @@ function undisplayErrorMessage($inputWrapper) {
 function handleNicknameInput({target}) {
   const nickname = target.value;
 
-  if (nickname.length > 3 && !state.isNicknameValidate) {
+  if (nickname.length >= 2 && !state.isNicknameValidate) {
     state.isNicknameValidate = true;
     displayValidationMark(target.parentElement);
-  } else if (!nickname && state.isNicknameValidate) {
+  } else if (nickname.length < 2  && state.isNicknameValidate) {
     state.isNicknameValidate = false;
     undisplayValidationMark(target.parentElement);
   }
