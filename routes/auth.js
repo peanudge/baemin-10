@@ -2,16 +2,7 @@ import express from "express";
 import { compare } from "../models/util/security.js";
 import { AccountStore } from "../app.js";
 import { RegisterInfo } from "../models/register/RegisterInfo.js";
-
-/**
- * This constant variable means key for accessing login account info.
- */
-const SESSION_AUTH_KEY = "auth";
-
-/**
- * This constant variable means key for accessing register(sign up) info.
- */
-const SESSION_REGISTER_KEY = "registering";
+import { SESSION_AUTH_KEY, SESSION_REGISTER_KEY } from "./sessionKeys.js";
 
 const ID_NO_MATCH_MSG = "존재하지 않는 아이디입니다.";
 const PASSWORD_NO_MATCH_MSG = "패스워드가 일치하지않습니다.";
