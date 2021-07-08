@@ -11,12 +11,10 @@ var router = express.Router();
 
 router.get("/login", function (req, res, next) {
   const accountInSession = req.session[SESSION_AUTH_KEY];
-  console.log("DEBUG - session ", req.session[SESSION_AUTH_KEY]);
-
   if (accountInSession) {
     res.redirect("/");
   } else {
-    res.render("auth/login", { title: "Login", errorMessage: "", id: "" });
+    res.render("auth/login", { title: "Login", id: "", errorMessage: "" });
   }
 });
 
@@ -28,7 +26,6 @@ router.post("/login", async function (req, res, next) {
     const pwcheck = await compare(pw, account.password);
     if (pwcheck) {
       req.session[SESSION_AUTH_KEY] = account;
-
       res.redirect("/");
       return;
     } else {
