@@ -67,7 +67,7 @@ function disableNextStep() {
   $headerNextButton.removeEventListener('click', handleSubmit);
 }
 
-function displayValidation($parentElement) {
+function displayValidationMark($parentElement) {
   const $validationMark = document.createElement('i');
   $validationMark.classList.add('fas', 'fa-check', 'check-icon');
 
@@ -75,7 +75,7 @@ function displayValidation($parentElement) {
   $inputFloatButtonWrapper.append($validationMark);
 }
 
-function undisplayValidation($parentElement) {
+function undisplayValidationMark($parentElement) {
   if (state.isPhoneNumberValidate) {
     const $checkIcon = $parentElement.querySelector('.input-float-button-wrapper .check-icon');
     $checkIcon.remove();
@@ -120,14 +120,14 @@ function handlePhoneNumberInput({target}) {
   }
 
   if (inputValue.length !== PHONE_NUMBER_MAX_LENGTH) {
-    undisplayValidation(target.parentElement);
+    undisplayValidationMark(target.parentElement);
     resetValidation();
   }
   if (inputValue.length === PHONE_NUMBER_MAX_LENGTH) {
     const isValid = validatePhoneNumber();
     if (isValid) {
       state.isPhoneNumberValidate = true;
-      displayValidation(target.parentElement);
+      displayValidationMark(target.parentElement);
     }
   }
 }
