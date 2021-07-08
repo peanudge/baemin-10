@@ -6,7 +6,8 @@ const EMAIL_REGEX = {
 } 
 const PHONE_REGEX = {
   regex: '^[0][1][0-9]-\\d{4}-\\d{4}$',
-  isMath: true,
+  flag: 'g',
+  isMatch: true,
 }
 const PASSWORD_COMBINATION_REGEX = {
   regex: '^(((?=.*[a-z])(?=.*[A-Z]))' +
@@ -31,7 +32,6 @@ const BIRTHDAY_REGEX = {
 const testRegex = (regexList) => (string) => {
   const isPassedAll = regexList.reduce((result, regexObject) => {
     const {regex, flag, isMatch} = regexObject;
-    console.log(new RegExp(regex, flag));
     const isOk = new RegExp(regex, flag).test(string);
 
     return result && (isOk === isMatch);
