@@ -62,6 +62,9 @@ const state = {
 function handleSubmit() {
   const $form = document.querySelector('form');
 
+  const $emailInput = document.querySelector('#email');
+  $emailInput.removeAttribute('disabled');
+
   if (state.validate()) {
     $form.submit();
   }
@@ -116,6 +119,7 @@ function createInput({
   id,
   labelText,
   type,
+  name,
   placeholder,
   maxlength,
   eventType,
@@ -134,6 +138,7 @@ function createInput({
   const $input = document.createElement('input');
   $input.id = id;
   $input.setAttribute('type', type);
+  $input.setAttribute('name', name);
   if (placeholder) {
     $input.setAttribute('placeholder', placeholder);
   }
@@ -249,6 +254,7 @@ function displayInfoInputUI() {
     labelText: '닉네임',
     id: 'nickname',
     type: 'text',
+    name: 'nickname',
     eventType: 'input',
     eventHandler: handleNicknameInput,
   });
@@ -256,6 +262,7 @@ function displayInfoInputUI() {
     labelText: '비밀번호',
     id: 'password',
     type: 'password',
+    name: 'password',
     eventType: 'input',
     eventHandler: handlePasswordInput,
   });
@@ -263,6 +270,7 @@ function displayInfoInputUI() {
     labelText: '생년월일',
     id: 'birthday',
     type: 'text',
+    name: 'birthday',
     placeholder: '예) 2000.01.01',
     maxlength: 10,
     eventType: 'input',
@@ -285,17 +293,24 @@ async function validateEmail({target}) {
     const $emailValidationButton = document.querySelector('#validate-email');
     $emailValidationButton.removeEventListener('click', validateEmail);
     
-    // TODO: fetch GET
-    // const res = await fetch('');
-    // const {isUnique} = await res.json();
-    // state.isEmailValidate = isUnique;
-  
-    state.isEmailValidate = true;
-    $emailValidationButton.addEventListener('click', validateEmail);
-    $emailInput.setAttribute('disabled', true);
-    displayValidationMark(target.parentElement.querySelector('.input-wrapper'));
+    const EMAIL_CHECK_URL = `http://localhost:3000/api/account/id?id=${email}`;
+    const res = await fetch(EMAIL_CHECK_URL, {
+      method: 'HEAD',
+    });
+
+    state.isEmailValidate = !res.ok;
     
-    displayInfoInputUI();
+    if (!res.ok) {
+      $emailInput.setAttribute('disabled', true);
+      undisplayErrorMessage($emailInput.parentElement);
+      displayValidationMark(target.parentElement.querySelector('.input-wrapper'));
+      
+      displayInfoInputUI();
+    } else {
+      displayErrorMessage($emailInput.parentElement, '이미 가입된 이메일입니다.');
+    }
+    
+    $emailValidationButton.addEventListener('click', validateEmail);
   }
 }
 

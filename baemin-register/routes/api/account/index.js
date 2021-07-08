@@ -1,9 +1,9 @@
 import express from 'express';
 
-import email from './email/index.js';
+import id from './id/index.js';
 
 const router = express.Router();
 
-router.use('/email', email);
+router.use('/id', id);
 
 export default router;

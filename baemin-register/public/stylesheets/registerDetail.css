@@ -8,6 +8,7 @@
 .row {
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
 header .left {
@@ -99,4 +100,11 @@ main {
   font-size: 1rem;
   color: var(--main-color);
   cursor: pointer;
+}
+
+.row > .error-message {
+  position: absolute;
+  margin-top: 36px;
+  color: var(--alert-color);
+  font-size: 0.5rem;
 }
