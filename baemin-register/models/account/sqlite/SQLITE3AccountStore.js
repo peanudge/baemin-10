@@ -19,7 +19,6 @@ export class SQLITE3AccountStore extends AbstractAccountStore {
 
   async create(id, password, phonenumber, nickname, dateOfBirth) {
     const db = await connectDB();
-    // TODO: Add Hashing password using bcrypt.
     const account = new Account(
       id,
       password,

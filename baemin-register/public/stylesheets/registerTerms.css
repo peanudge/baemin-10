@@ -144,3 +144,11 @@ header > .title {
 .next-step-btn:disabled {
   background-color: var(--disabled-color);
 }
+
+.error-msg {
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  color: var(--pink-color);
+  font-size: 2rem;
+}
