@@ -88,13 +88,19 @@ function displayValidationMark($parentElement) {
 
   const $inputFloatButtonWrapper = $parentElement
     .querySelector('.input-float-button-wrapper');
-  $inputFloatButtonWrapper.append($validationMark);
+
+  if (!$inputFloatButtonWrapper.querySelector('.check-icon')) {
+    $inputFloatButtonWrapper.append($validationMark);
+  }
 }
 
 function undisplayValidationMark($parentElement) {
   const $checkIcon = $parentElement
     .querySelector('.input-float-button-wrapper .check-icon');
-  $checkIcon.remove();
+  
+  if ($checkIcon) {
+    $checkIcon.remove();
+  }
 }
 
 function addDot(target) {
@@ -122,8 +128,7 @@ function createInput({
   name,
   placeholder,
   maxlength,
-  eventType,
-  eventHandler,
+  events,
 }) {
   const $inputContainer = document.createElement('div');
   $inputContainer.classList.add('input-container');
@@ -153,8 +158,10 @@ function createInput({
   $label.append($inputWrapper);
   $inputContainer.append($label);
 
-  if (eventType) {
-    $input.addEventListener(eventType, eventHandler);
+  if (events.length > 0) {
+    events.forEach(({type, handler}) => {
+      $input.addEventListener(type, handler);
+    });
   }
 
   return $inputContainer;
@@ -205,7 +212,7 @@ function handlePasswordInput({target}) {
     state.isPasswordValidate = true;
     displayValidationMark(target.parentElement);
     undisplayErrorMessage(target.parentElement);
-  } else if (!isValidate && state.isPasswordValidate) {
+  } else if (!isValidate) {
     state.isPasswordValidate = false;
     undisplayValidationMark(target.parentElement);
     displayErrorMessage(
@@ -255,16 +262,24 @@ function displayInfoInputUI() {
     id: 'nickname',
     type: 'text',
     name: 'nickname',
-    eventType: 'input',
-    eventHandler: handleNicknameInput,
+    events: [
+      {
+        type: 'input',
+        handler: handleNicknameInput,
+      }
+    ],
   });
   const $passwordInput = createInput({
     labelText: '비밀번호',
     id: 'password',
     type: 'password',
     name: 'password',
-    eventType: 'input',
-    eventHandler: handlePasswordInput,
+    events: [
+      {
+        type: 'input',
+        handler: handlePasswordInput,
+      }
+    ],
   });
   const $birthdayInput = createInput({
     labelText: '생년월일',
@@ -273,8 +288,12 @@ function displayInfoInputUI() {
     name: 'birthday',
     placeholder: '예) 2000.01.01',
     maxlength: 10,
-    eventType: 'input',
-    eventHandler: handleBirthdayInput,
+    events: [
+      {
+        type: 'input',
+        handler: handleBirthdayInput,
+      }
+    ],
   });
 
   $form.append(
@@ -289,7 +308,7 @@ async function validateEmail({target}) {
   const email = $emailInput.value;
   const emailFormatValidity = checkRegex.email(email);
 
-  if (emailFormatValidity) {
+  if (emailFormatValidity && !state.isEmailValidate) {
     const $emailValidationButton = document.querySelector('#validate-email');
     $emailValidationButton.removeEventListener('click', validateEmail);
     
