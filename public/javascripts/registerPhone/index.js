@@ -135,6 +135,9 @@ function handlePhoneNumberInput({target}) {
 function clearPhoneNumberInput() {
   const $phoneNumberInput = document.querySelector('#phone');
   $phoneNumberInput.value = '';
+
+  undisplayValidationMark($phoneNumberInput.parentElement);
+  state.isPhoneNumberValidate = false;
 }
 
 function getConfirmNumber() {
@@ -199,6 +202,10 @@ function createConfirmNumberReRequestButton() {
 }
 
 function requestConfirmNumber(e) {
+  if (!state.isPhoneNumberValidate) {
+    return;
+  }
+
   e.target.removeEventListener('click', requestConfirmNumber);
   state.gotConfirmNumber = false;
 
