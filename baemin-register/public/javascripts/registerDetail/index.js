@@ -79,7 +79,7 @@ function disableNextStep() {
   $headerNextButton.removeEventListener('click', handleSubmit);
 }
 
-function displayValidation($parentElement) {
+function displayValidationMark($parentElement) {
   const $validationMark = document.createElement('i');
   $validationMark.classList.add('fas', 'fa-check', 'check-icon');
 
@@ -88,7 +88,7 @@ function displayValidation($parentElement) {
   $inputFloatButtonWrapper.append($validationMark);
 }
 
-function undisplayValidation($parentElement) {
+function undisplayValidationMark($parentElement) {
   const $checkIcon = $parentElement
     .querySelector('.input-float-button-wrapper .check-icon');
   $checkIcon.remove();
@@ -185,10 +185,10 @@ function handleNicknameInput({target}) {
 
   if (nickname.length > 3 && !state.isNicknameValidate) {
     state.isNicknameValidate = true;
-    displayValidation(target.parentElement);
+    displayValidationMark(target.parentElement);
   } else if (!nickname && state.isNicknameValidate) {
     state.isNicknameValidate = false;
-    undisplayValidation(target.parentElement);
+    undisplayValidationMark(target.parentElement);
   }
 }
 
@@ -198,11 +198,11 @@ function handlePasswordInput({target}) {
 
   if (isValidate && !state.isPasswordValidate) {
     state.isPasswordValidate = true;
-    displayValidation(target.parentElement);
+    displayValidationMark(target.parentElement);
     undisplayErrorMessage(target.parentElement);
   } else if (!isValidate && state.isPasswordValidate) {
     state.isPasswordValidate = false;
-    undisplayValidation(target.parentElement);
+    undisplayValidationMark(target.parentElement);
     displayErrorMessage(
       target.parentElement,
       '10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다'
@@ -223,14 +223,14 @@ function handleBirthdayInput({target}) {
 
   if (inputValue.length !== BIRTHDAY_MAX_LENGTH && state.isBirthdayValidate) {
     state.isBirthdayValidate = false;
-    undisplayValidation(target.parentElement);
+    undisplayValidationMark(target.parentElement);
     displayErrorMessage(target.parentElement, '생년월일 형식을 확인해주세요');
   }
   if (inputValue.length === BIRTHDAY_MAX_LENGTH) {
     const isValid = checkRegex.birthday(inputValue);
     if (isValid) {
       state.isBirthdayValidate = true;
-      displayValidation(target.parentElement);
+      displayValidationMark(target.parentElement);
       undisplayErrorMessage(target.parentElement);
     } else {
       displayErrorMessage(target.parentElement, '생년월일 형식을 확인해주세요');
@@ -293,7 +293,7 @@ async function validateEmail({target}) {
     state.isEmailValidate = true;
     $emailValidationButton.addEventListener('click', validateEmail);
     $emailInput.setAttribute('disabled', true);
-    displayValidation(target.parentElement.querySelector('.input-wrapper'));
+    displayValidationMark(target.parentElement.querySelector('.input-wrapper'));
     
     displayInfoInputUI();
   }
@@ -304,7 +304,7 @@ function clearEmailInput() {
   $emailInput.value = '';
   $emailInput.removeAttribute('disabled');
   state.isEmailValidate = false;
-  undisplayValidation($emailInput.parentElement);
+  undisplayValidationMark($emailInput.parentElement);
 }
 
 function bindEvents() {
