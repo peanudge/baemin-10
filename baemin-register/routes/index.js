@@ -1,5 +1,6 @@
 import express from "express";
-var router = express.Router();
+
+const router = express.Router();
 
 const SESSION_AUTH_KEY = "auth";
 

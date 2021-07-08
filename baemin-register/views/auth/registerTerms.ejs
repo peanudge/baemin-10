@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>회원가입 - 약관동의</title>
     <script
       src="https://kit.fontawesome.com/3b8424c68a.js"
       crossorigin="anonymous"
@@ -33,7 +33,7 @@
           <hr />
 
           <div class="check-container">
-            <input type="checkbox" id="terms-1"  name="terms-1" class="essential-terms" />
+            <input type="checkbox" id="terms-1"  name="terms_1" class="essential-terms" />
             <label for="terms-1">배달의 민족 이용약관 동의</label>
             <button class="check-container--detail-arrow">
               <i class="fas fa-chevron-right"></i>
@@ -41,7 +41,7 @@
           </div>
 
           <div class="check-container">
-            <input type="checkbox" id="terms-2" name="terms-2" class="essential-terms" />
+            <input type="checkbox" id="terms-2" name="terms_2" class="essential-terms" />
             <label for="terms-2">전자금융거래 이용약관 동의</label>
             <button class="check-container--detail-arrow">
               <i class="fas fa-chevron-right"></i>
@@ -49,7 +49,7 @@
           </div>
 
           <div class="check-container">
-            <input type="checkbox" id="terms-3" name="terms-3" class="essential-terms" />
+            <input type="checkbox" id="terms-3" name="terms_3" class="essential-terms" />
             <label for="terms-3">개인정보 수집이용 동의</label>
             <button class="check-container--detail-arrow">
               <i class="fas fa-chevron-right"></i>
@@ -57,7 +57,7 @@
           </div>
 
           <div class="check-container">
-            <input type="checkbox" id="option-terms-1" name="option-terms-1" />
+            <input type="checkbox" id="option-terms-1" name="option_terms_1" />
             <label for="option-terms-1"
               >개인정보 제3자 제공 동의 (선택)</label
             >
@@ -67,7 +67,7 @@
           </div>
 
           <div class="check-container">
-            <input type="checkbox" id="option-terms-2" name="option-terms-2" />
+            <input type="checkbox" id="option-terms-2" name="option_terms_2" />
             <label for="option-terms-2"
               >마케팅 정보 메일, SMS 수신 동의 (선택)</label
             >
@@ -94,7 +94,11 @@
               </p>
             </label>
           </div>
-          <input id="terms-submit-btn" type="submit" class="next-step-btn" value="다음으로" disabled></button>
+          <% if (locals.errorMessage) { %>
+            <span class="error-msg"><%= errorMessage %></span>
+          <% } %>
+          <input id="terms-submit-btn" type="submit" class="next-step-btn" value="다음으로" disabled>
+          </button>
         </form>
       </main>
     </div>
