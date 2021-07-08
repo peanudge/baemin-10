@@ -31,6 +31,7 @@
             class="login-form--id-input"
             type="email"
             name="id"
+            value="<%= id %>"
             placeholder="아이디 또는 이메일"
           />
           <span class="login-form--id-warning-message"
@@ -47,6 +48,7 @@
             >비밀번호를 입력해주세요.</span
           >
           <button id="login-btn" class="login-form--submit-btn">로그인</button>
+          <span class="login-form--result-msg"><%= errorMessage %></span>
         </form>
 
         <div class="auth-util">

@@ -121,3 +121,9 @@ footer {
   margin-left: 1rem;
   color: var(--main-color);
 }
+
+.login-form--result-msg {
+  text-align: center;
+  color: var(--pink-color);
+  font-size: 2rem;
+}

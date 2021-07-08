@@ -32,7 +32,7 @@ export class SQLITE3AccountStore extends AbstractAccountStore {
       db.run(
         "INSERT INTO accounts ( id, password, phoneNumber, dateOfBirth, nickname) " +
           "VALUES ( ?, ? , ?, ?, ? );",
-        [id, password, phonenumber, nickname, dateOfBirth],
+        [id, password, phonenumber, dateOfBirth, nickname],
         (err) => {
           if (err) return reject(err);
           resolve(account);
@@ -43,20 +43,29 @@ export class SQLITE3AccountStore extends AbstractAccountStore {
     return account;
   }
 
+  /**
+   *
+   * @param {String} id
+   * @returns if find account, function returns Account Object, otherwise returns null.
+   */
   async retrieve(id) {
     const db = await connectDB();
     const account = await new Promise((resolve, reject) => {
       db.get("SELECT * FROM accounts WHERE id = ?", [id], (err, row) => {
         if (err) return reject(err);
-        const { id, password, phoneNumber, nickname, dateOfBirth } = row;
-        const account = new Account(
-          id,
-          password,
-          phoneNumber,
-          nickname,
-          dateOfBirth
-        );
-        resolve(account);
+        if (row) {
+          const { id, password, phoneNumber, nickname, dateOfBirth } = row;
+          const account = new Account(
+            id,
+            password,
+            phoneNumber,
+            nickname,
+            dateOfBirth
+          );
+          resolve(account);
+        } else {
+          resolve(null);
+        }
       });
     });
     return account;
