@@ -1,11 +1,13 @@
-import checkRegex from '/javascripts/utils/checkRegex.js';
+import checkRegex from "/javascripts/utils/checkRegex.js";
+
+const EMAIL_CHECK_URL = `/api/account/id?id=${email}`;
 
 const BIRTHDAY_FIRST_DIVISION_INDEX = 5;
 const BIRTHDAY_SECOND_DIVISION_INDEX = 8;
 const BIRTHDAY_MAX_LENGTH = 10;
 
 const state = {
-  validate: function() {
+  validate: function () {
     return (
       this?._isEmailValidate &&
       this?._isNicknameValidate &&
@@ -57,13 +59,13 @@ const state = {
       disableNextStep();
     }
   },
-}
+};
 
 function handleSubmit() {
-  const $form = document.querySelector('form');
+  const $form = document.querySelector("form");
 
-  const $emailInput = document.querySelector('#email');
-  $emailInput.removeAttribute('disabled');
+  const $emailInput = document.querySelector("#email");
+  $emailInput.removeAttribute("disabled");
 
   if (state.validate()) {
     $form.submit();
@@ -71,47 +73,49 @@ function handleSubmit() {
 }
 
 function enableNextStep() {
-  const $headerNextButton = document.querySelector('header .right');
-  $headerNextButton.classList.remove('disabled');
-  $headerNextButton.addEventListener('click', handleSubmit);
+  const $headerNextButton = document.querySelector("header .right");
+  $headerNextButton.classList.remove("disabled");
+  $headerNextButton.addEventListener("click", handleSubmit);
 }
 
 function disableNextStep() {
-  const $headerNextButton = document.querySelector('header .right');
-  $headerNextButton.classList.add('disabled');
-  $headerNextButton.removeEventListener('click', handleSubmit);
+  const $headerNextButton = document.querySelector("header .right");
+  $headerNextButton.classList.add("disabled");
+  $headerNextButton.removeEventListener("click", handleSubmit);
 }
 
 function displayValidationMark($parentElement) {
-  const $validationMark = document.createElement('i');
-  $validationMark.classList.add('fas', 'fa-check', 'check-icon');
+  const $validationMark = document.createElement("i");
+  $validationMark.classList.add("fas", "fa-check", "check-icon");
 
-  const $inputFloatButtonWrapper = $parentElement
-    .querySelector('.input-float-button-wrapper');
+  const $inputFloatButtonWrapper = $parentElement.querySelector(
+    ".input-float-button-wrapper"
+  );
   $inputFloatButtonWrapper.append($validationMark);
 }
 
 function undisplayValidationMark($parentElement) {
-  const $checkIcon = $parentElement
-    .querySelector('.input-float-button-wrapper .check-icon');
+  const $checkIcon = $parentElement.querySelector(
+    ".input-float-button-wrapper .check-icon"
+  );
   $checkIcon.remove();
 }
 
 function addDot(target) {
   const index = target.value.length - 1;
-  if (target.value[index] === '.') {
+  if (target.value[index] === ".") {
     return;
   }
   if (target.value.match(/\./g)?.length > 1) {
     return;
-  };
+  }
 
-  const stringArray = target.value.split('');
+  const stringArray = target.value.split("");
   const joinedString = [
     ...stringArray.slice(0, index),
-    '.',
+    ".",
     ...stringArray.splice(index),
-  ].join('');
+  ].join("");
   target.value = joinedString;
 }
 
@@ -125,29 +129,29 @@ function createInput({
   eventType,
   eventHandler,
 }) {
-  const $inputContainer = document.createElement('div');
-  $inputContainer.classList.add('input-container');
+  const $inputContainer = document.createElement("div");
+  $inputContainer.classList.add("input-container");
 
-  const $label = document.createElement('label');
-  $label.setAttribute('for', id);
-  $label.insertAdjacentHTML('afterbegin', labelText);
+  const $label = document.createElement("label");
+  $label.setAttribute("for", id);
+  $label.insertAdjacentHTML("afterbegin", labelText);
 
-  const $inputWrapper = document.createElement('div');
-  $inputWrapper.classList.add('input-wrapper');
+  const $inputWrapper = document.createElement("div");
+  $inputWrapper.classList.add("input-wrapper");
 
-  const $input = document.createElement('input');
+  const $input = document.createElement("input");
   $input.id = id;
-  $input.setAttribute('type', type);
-  $input.setAttribute('name', name);
+  $input.setAttribute("type", type);
+  $input.setAttribute("name", name);
   if (placeholder) {
-    $input.setAttribute('placeholder', placeholder);
+    $input.setAttribute("placeholder", placeholder);
   }
   if (maxlength) {
-    $input.setAttribute('maxlength', maxlength);
+    $input.setAttribute("maxlength", maxlength);
   }
 
-  const $inputFloatButton = document.createElement('div');
-  $inputFloatButton.classList.add('input-float-button-wrapper');
+  const $inputFloatButton = document.createElement("div");
+  $inputFloatButton.classList.add("input-float-button-wrapper");
 
   $inputWrapper.append($input, $inputFloatButton);
   $label.append($inputWrapper);
@@ -163,13 +167,13 @@ function createInput({
 function displayErrorMessage($inputWrapper, text) {
   const $parentElement = $inputWrapper.parentElement;
 
-  if (!$parentElement.querySelector('.error-message')) {
-    const $errorMessage = document.createElement('div');
-    $errorMessage.classList.add('error-message');
-    $errorMessage.insertAdjacentText('beforeend', text);
-  
-    const $inputElement = $inputWrapper.querySelector('input');
-    $inputElement.classList.add('input--error');
+  if (!$parentElement.querySelector(".error-message")) {
+    const $errorMessage = document.createElement("div");
+    $errorMessage.classList.add("error-message");
+    $errorMessage.insertAdjacentText("beforeend", text);
+
+    const $inputElement = $inputWrapper.querySelector("input");
+    $inputElement.classList.add("input--error");
     $inputWrapper.after($errorMessage);
   }
 }
@@ -177,27 +181,27 @@ function displayErrorMessage($inputWrapper, text) {
 function undisplayErrorMessage($inputWrapper) {
   const $parentElement = $inputWrapper.parentElement;
 
-  const $errorMessage = $parentElement.querySelector('.error-message');
+  const $errorMessage = $parentElement.querySelector(".error-message");
   if ($errorMessage) {
     $errorMessage.remove();
-    const $inputElement = $inputWrapper.querySelector('input');
-    $inputElement.classList.remove('input--error');
+    const $inputElement = $inputWrapper.querySelector("input");
+    $inputElement.classList.remove("input--error");
   }
 }
 
-function handleNicknameInput({target}) {
+function handleNicknameInput({ target }) {
   const nickname = target.value;
 
   if (nickname.length >= 2 && !state.isNicknameValidate) {
     state.isNicknameValidate = true;
     displayValidationMark(target.parentElement);
-  } else if (nickname.length < 2  && state.isNicknameValidate) {
+  } else if (nickname.length < 2 && state.isNicknameValidate) {
     state.isNicknameValidate = false;
     undisplayValidationMark(target.parentElement);
   }
 }
 
-function handlePasswordInput({target}) {
+function handlePasswordInput({ target }) {
   const password = target.value;
   const isValidate = checkRegex.password(password);
 
@@ -210,17 +214,17 @@ function handlePasswordInput({target}) {
     undisplayValidationMark(target.parentElement);
     displayErrorMessage(
       target.parentElement,
-      '10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다'
-    )
+      "10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다"
+    );
   }
 }
 
-function handleBirthdayInput({target}) {
+function handleBirthdayInput({ target }) {
   const inputValue = target.value;
 
   const divisionIndex = [
     BIRTHDAY_FIRST_DIVISION_INDEX,
-    BIRTHDAY_SECOND_DIVISION_INDEX
+    BIRTHDAY_SECOND_DIVISION_INDEX,
   ];
   if (divisionIndex.includes(inputValue.length)) {
     addDot(target);
@@ -229,7 +233,7 @@ function handleBirthdayInput({target}) {
   if (inputValue.length !== BIRTHDAY_MAX_LENGTH && state.isBirthdayValidate) {
     state.isBirthdayValidate = false;
     undisplayValidationMark(target.parentElement);
-    displayErrorMessage(target.parentElement, '생년월일 형식을 확인해주세요');
+    displayErrorMessage(target.parentElement, "생년월일 형식을 확인해주세요");
   }
   if (inputValue.length === BIRTHDAY_MAX_LENGTH) {
     const isValid = checkRegex.birthday(inputValue);
@@ -238,99 +242,99 @@ function handleBirthdayInput({target}) {
       displayValidationMark(target.parentElement);
       undisplayErrorMessage(target.parentElement);
     } else {
-      displayErrorMessage(target.parentElement, '생년월일 형식을 확인해주세요');
+      displayErrorMessage(target.parentElement, "생년월일 형식을 확인해주세요");
     }
   }
 }
 
 function displayInfoInputUI() {
-  const $form = document.querySelector('form');
+  const $form = document.querySelector("form");
 
-  if ($form.querySelector('#nickname')) {
+  if ($form.querySelector("#nickname")) {
     return;
   }
-  
+
   const $nicknameInput = createInput({
-    labelText: '닉네임',
-    id: 'nickname',
-    type: 'text',
-    name: 'nickname',
-    eventType: 'input',
+    labelText: "닉네임",
+    id: "nickname",
+    type: "text",
+    name: "nickname",
+    eventType: "input",
     eventHandler: handleNicknameInput,
   });
   const $passwordInput = createInput({
-    labelText: '비밀번호',
-    id: 'password',
-    type: 'password',
-    name: 'password',
-    eventType: 'input',
+    labelText: "비밀번호",
+    id: "password",
+    type: "password",
+    name: "password",
+    eventType: "input",
     eventHandler: handlePasswordInput,
   });
   const $birthdayInput = createInput({
-    labelText: '생년월일',
-    id: 'birthday',
-    type: 'text',
-    name: 'birthday',
-    placeholder: '예) 2000.01.01',
+    labelText: "생년월일",
+    id: "birthday",
+    type: "text",
+    name: "birthday",
+    placeholder: "예) 2000.01.01",
     maxlength: 10,
-    eventType: 'input',
+    eventType: "input",
     eventHandler: handleBirthdayInput,
   });
 
-  $form.append(
-    $nicknameInput,
-    $passwordInput,
-    $birthdayInput
-  );
+  $form.append($nicknameInput, $passwordInput, $birthdayInput);
 }
 
-async function validateEmail({target}) {
-  const $emailInput = document.querySelector('#email');
+async function validateEmail({ target }) {
+  const $emailInput = document.querySelector("#email");
   const email = $emailInput.value;
   const emailFormatValidity = checkRegex.email(email);
 
   if (emailFormatValidity) {
-    const $emailValidationButton = document.querySelector('#validate-email');
-    $emailValidationButton.removeEventListener('click', validateEmail);
-    
-    const EMAIL_CHECK_URL = `http://localhost:3000/api/account/id?id=${email}`;
+    const $emailValidationButton = document.querySelector("#validate-email");
+    $emailValidationButton.removeEventListener("click", validateEmail);
+
     const res = await fetch(EMAIL_CHECK_URL, {
-      method: 'HEAD',
+      method: "HEAD",
     });
 
     state.isEmailValidate = !res.ok;
-    
+
     if (!res.ok) {
-      $emailInput.setAttribute('disabled', true);
+      $emailInput.setAttribute("disabled", true);
       undisplayErrorMessage($emailInput.parentElement);
-      displayValidationMark(target.parentElement.querySelector('.input-wrapper'));
-      
+      displayValidationMark(
+        target.parentElement.querySelector(".input-wrapper")
+      );
+
       displayInfoInputUI();
     } else {
-      displayErrorMessage($emailInput.parentElement, '이미 가입된 이메일입니다.');
+      displayErrorMessage(
+        $emailInput.parentElement,
+        "이미 가입된 이메일입니다."
+      );
     }
-    
-    $emailValidationButton.addEventListener('click', validateEmail);
+
+    $emailValidationButton.addEventListener("click", validateEmail);
   }
 }
 
 function clearEmailInput() {
-  const $emailInput = document.querySelector('#email');
-  $emailInput.value = '';
-  $emailInput.removeAttribute('disabled');
+  const $emailInput = document.querySelector("#email");
+  $emailInput.value = "";
+  $emailInput.removeAttribute("disabled");
   state.isEmailValidate = false;
   undisplayValidationMark($emailInput.parentElement);
 }
 
 function bindEvents() {
-  const $emailValidationButton = document.querySelector('#validate-email');
-  $emailValidationButton.addEventListener('click', validateEmail);
+  const $emailValidationButton = document.querySelector("#validate-email");
+  $emailValidationButton.addEventListener("click", validateEmail);
 
-  const $emailInputClearButton = document.querySelector('#email-clear');
-  $emailInputClearButton.addEventListener('click', clearEmailInput);
+  const $emailInputClearButton = document.querySelector("#email-clear");
+  $emailInputClearButton.addEventListener("click", clearEmailInput);
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener("DOMContentLoaded", () => {
   state.isEmailValidate = false;
   state.isNicknameValidate = false;
   state.isPasswordValidate = false;

@@ -1,11 +1,11 @@
 import express from "express";
 
+import { SESSION_AUTH_KEY } from "../sessionKeys.js";
 import { compare } from "../../models/util/security.js";
 import { AccountStore } from "../../app.js";
 
 const router = express.Router();
 
-const SESSION_AUTH_KEY = "auth";
 const ID_NO_MATCH_MSG = "존재하지 않는 아이디입니다.";
 const PASSWORD_NO_MATCH_MSG = "패스워드가 일치하지않습니다.";
 

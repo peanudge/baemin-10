@@ -1,11 +1,9 @@
 import express from "express";
-
-import { RegisterInfo } from "../../models/register/RegisterInFo.js";
+import { SESSION_REGISTER_KEY, SESSION_AUTH_KEY } from "../sessionKeys.js";
+import { RegisterInfo } from "../../models/register/RegisterInfo.js";
 
 const router = express.Router();
 
-const SESSION_AUTH_KEY = "auth";
-const SESSION_REGISTER_KEY = "registering";
 const TERMS_EMPTY_MSG = "필수 약관동의를 모두 확인해주세요.";
 
 router.get("/", function (req, res) {

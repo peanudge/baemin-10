@@ -1,10 +1,9 @@
 import express from "express";
 
-import checkRegex from '../../public/javascripts/utils/checkRegex.js'
+import { SESSION_REGISTER_KEY } from "../sessionKeys.js";
+import checkRegex from "../../public/javascripts/utils/checkRegex.js";
 
 const router = express.Router();
-
-const SESSION_REGISTER_KEY = "registering";
 
 router.get("/", function (req, res) {
   const registerSession = req.session[SESSION_REGISTER_KEY];
@@ -21,7 +20,7 @@ router.post("/", function (req, res) {
   const isValid = checkRegex.phone(phone_number);
 
   if (isValid) {
-    const processedPhoneNumber = phone_number.replace(/-/g, '');
+    const processedPhoneNumber = phone_number.replace(/-/g, "");
     req.session[SESSION_REGISTER_KEY].phoneNumber = processedPhoneNumber;
 
     res.redirect("/auth/registerDetail");
