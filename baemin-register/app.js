@@ -4,32 +4,41 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import dotenv from "dotenv";
+import session from "express-session";
 
 import indexRouter from "./routes/index.js";
 import authRouter from "./routes/auth.js";
 
 import { SQLITE3AccountStore } from "./models/account/sqlite/SQLITE3AccountStore.js";
-export const AccountStore = new SQLITE3AccountStore();
-
-dotenv.config();
-console.log("DB FILE:", process.env.SQLITE_FILE);
+import { createMockAccounts } from "./mock/MockData.js";
 
 const __dirname = path.resolve();
+
+dotenv.config();
+
+export const AccountStore = new SQLITE3AccountStore();
+
+if (process.env.MOCK_DATA) {
+  await createMockAccounts();
+}
+
+console.log("DB FILE:", process.env.SQLITE_FILE);
+
 var app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-// TODO: add Express Session middleware
-// TODO: add Embeded DB middleware
-// TODO: add BodyParser middleware
-
 app.use(logger("dev"));
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use(session({ secret: "keyboard cat", cookie: { maxAge: 60000 } }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
