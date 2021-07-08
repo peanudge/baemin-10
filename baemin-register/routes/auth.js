@@ -16,6 +16,8 @@ router.post("/login", async function (req, res, next) {
       res.redirect("/");
     }
   }
+
+  // TODO: Error Message
   res.render("auth/login", { title: "Login" });
 });
 

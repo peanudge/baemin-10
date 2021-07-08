@@ -4,14 +4,18 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node ./bin/www.js"
+    "start": "node ./bin/www.js",
+    "sqlite3-setup": "sqlite3 accounts.sqlite3 --init models/account/sqlite/schema/account-schema-sqlite3.sql",
+    "sqlite3-delete": "rm accounts.sqlite3"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "sqlite3": "^5.0.2"
   }
 }

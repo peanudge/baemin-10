@@ -3,12 +3,16 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
+import dotenv from "dotenv";
 
 import indexRouter from "./routes/index.js";
 import authRouter from "./routes/auth.js";
 
-import { InMemoryAccountsStore } from "./models/InMemoryAccountsStore.js";
-export const AccountStore = new InMemoryAccountsStore();
+import { SQLITE3AccountStore } from "./models/account/sqlite/SQLITE3AccountStore.js";
+export const AccountStore = new SQLITE3AccountStore();
+
+dotenv.config();
+console.log("DB FILE:", process.env.SQLITE_FILE);
 
 const __dirname = path.resolve();
 var app = express();
