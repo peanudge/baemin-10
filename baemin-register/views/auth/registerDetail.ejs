@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/registerDetail.css" />
-    <title>Document</title>
+    <title>회원가입 - 세부정보</title>
     <script
       src="https://kit.fontawesome.com/3b8424c68a.js"
       crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="/javascripts/registerDetail/index.js"
+      type="module"
     ></script>
   </head>
   <body>
@@ -21,48 +26,34 @@
         <div class="right disabled">완료</div>
       </header>
       <main>
-        <div class="input-container">
-          <label for="email">
-            이메일
-            <div class="row">
-              <div class="input-wrapper">
-                <input id="email" type="email" />
-                <button class="input-icon">
-                  <i class="fas fa-times-circle"></i>
+        <form action="/auth/registerDetail" method="POST">
+          <div class="input-container">
+            <label for="email">
+              이메일
+              <div class="row">
+                <div class="input-wrapper">
+                  <input id="email" type="email" />
+                  <div class="input-float-button-wrapper">
+                    <button
+                      id="email-clear"
+                      class="input-icon"
+                      type="button"
+                    >
+                      <i class="fas fa-times-circle"></i>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  id="validate-email"
+                  class="input-row-button"
+                  type="button"
+                >
+                  중복확인
                 </button>
               </div>
-              <button class="input-row-button">중복확인</button>
-            </div>
-          </label>
-        </div>
-        <div class="input-container">
-          <label for="nickname">
-            닉네임
-            <div class="input-wrapper">
-              <input id="nicknale" type="text" />
-              <i class="fas fa-check input-icon"></i>
-            </div>
-          </label>
-        </div>
-        <div class="input-container">
-          <label for="password">
-            비밀번호
-            <div class="input-wrapper">
-              <input class="input--error" id="password" type="password" />
-              <i class="fas fa-check input-icon"></i>
-            </div>
-            <div class="error-message">안됩니다</div>
-          </label>
-        </div>
-        <div class="input-container">
-          <label for="email">
-            생년월일
-            <div class="input-wrapper">
-              <input id="email" type="text" placeholder="예) 2000. 01. 01" />
-              <i class="fas fa-check input-icon"></i>
-            </div>
-          </label>
-        </div>
+            </label>
+          </div>
+        </form>
       </main>
     </div>
   </body>

@@ -10,12 +10,18 @@
   flex-direction: row;
 }
 
+header .left {
+  cursor: pointer;
+}
 header .right {
   font-size: 0.8rem;
   font-weight: 500;
+  color: var(--main-color);
+  cursor: pointer;
 }
 header .disabled {
   color: var(--disabled-color);
+  cursor: default;
 }
 
 main {
@@ -43,6 +49,7 @@ main {
   border: 1px solid var(--text-color);
   color: var(--text-color);
   transition: all 0.4s ease;
+  cursor: pointer;
 }
 .input-container .disabled {
   border: 1px solid var(--disabled-color);
@@ -70,17 +77,26 @@ main {
 .input-wrapper > input:focus {
   border-bottom: 1px solid var(--text-color);
 }
-.input-wrapper > .input--error {
+.input-wrapper > .input--error,
+.input-wrapper > .input--error:focus {
   border-bottom: 1px solid var(--alert-color);
 }
 
-.input-icon {
+.input-float-button-wrapper {
   position: absolute;
   right: 0;
-  padding: 0;
+}
+.input-float-button-wrapper i {
+  font-size: 1rem;
+  color: var(--sub-text-color);
+}
+.input-float-button-wrapper > .check-icon {
   font-size: 1rem;
   color: var(--main-color);
+  margin-left: 8px;
 }
-.input-icon i {
-  color: var(--text-color);
+.input-float-button-wrapper > button {
+  font-size: 1rem;
+  color: var(--main-color);
+  cursor: pointer;
 }
