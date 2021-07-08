@@ -105,3 +105,14 @@ section {
   font-size: 10px;
   color: var(--sub-text-color);
 }
+
+.logout-btn {
+  position: absolute;
+  right: 1rem;
+  font-size: 0.8rem;
+  color: var(--sub-text-color);
+}
+
+.logout-btn:hover {
+  color: var(--main-color);
+}

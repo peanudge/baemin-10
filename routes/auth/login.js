@@ -22,10 +22,15 @@ router.post("/", async function (req, res, next) {
   const { id, pw } = req.body;
   let errorMessage;
   const account = await AccountStore.retrieve(id);
+
   if (account) {
     const pwcheck = await compare(pw, account.password);
     if (pwcheck) {
-      req.session[SESSION_AUTH_KEY] = account;
+      req.session[SESSION_AUTH_KEY] = {
+        id: account.id,
+        nickname: account.nickname,
+      };
+      req.session.save();
       res.redirect("/");
       return;
     } else {

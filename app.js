@@ -39,10 +39,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
   session({
-    secret: "woowahan10",
-    resave: false,
-    saveUninitialized: false,
-    cookie: { maxAge: 60000 },
+    secret: "asdfasdf",
   })
 );
 

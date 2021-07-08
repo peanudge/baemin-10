@@ -41,7 +41,10 @@ router.post("/", async function (req, res) {
         birthday
       );
 
-      req.session[SESSION_AUTH_KEY] = account;
+      req.session[SESSION_AUTH_KEY] = {
+        id: account.id,
+        nickname: account.nickname,
+      };
       res.redirect("/");
     } else {
       res.render("auth/registerDetail");
