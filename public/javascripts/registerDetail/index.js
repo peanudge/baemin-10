@@ -227,6 +227,12 @@ function handlePasswordInput({ target }) {
 function handleBirthdayInput({ target }) {
   const inputValue = target.value;
 
+  const key = inputValue[inputValue.length - 1];
+  if (!/\d/.test(key)) {
+    target.value = target.value.slice(0, target.value.length - 1);
+    return;
+  }
+
   const divisionIndex = [
     BIRTHDAY_FIRST_DIVISION_INDEX,
     BIRTHDAY_SECOND_DIVISION_INDEX,
