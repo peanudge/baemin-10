@@ -1,6 +1,5 @@
 import express from "express";
 
-import { RegisterInfo } from "../../models/register/RegisterInFo.js";
 import checkRegex from '../../public/javascripts/utils/checkRegex.js'
 
 const router = express.Router();
@@ -8,12 +7,11 @@ const router = express.Router();
 const SESSION_REGISTER_KEY = "registering";
 
 router.get("/", function (req, res) {
-  const registerInfo = req.session[SESSION_REGISTER_KEY];
-  if (registerInfo) {
-    // Clear previous register infomation.
-    req.session[SESSION_REGISTER_KEY] = null;
+  const registerSession = req.session[SESSION_REGISTER_KEY];
+  if (!registerSession) {
+    res.redirect("/auth/registerTerms");
+    return;
   }
-
   res.render("auth/registerPhone");
 });
 
@@ -23,9 +21,8 @@ router.post("/", function (req, res) {
   const isValid = checkRegex.phone(phone_number);
 
   if (isValid) {
-    const registerInfo = new RegisterInfo();
-    registerInfo.phoneNumber = phone_number;
-    req.session[SESSION_REGISTER_KEY] = registerInfo;
+    const processedPhoneNumber = phone_number.replace(/-/g, '');
+    req.session[SESSION_REGISTER_KEY].phoneNumber = processedPhoneNumber;
 
     res.redirect("/auth/registerDetail");
   } else {
