@@ -6,8 +6,7 @@ import logger from "morgan";
 import dotenv from "dotenv";
 import session from "express-session";
 
-import indexRouter from "./routes/index.js";
-import authRouter from "./routes/auth.js";
+import routes from "./routes/index.js";
 
 import { SQLITE3AccountStore } from "./models/account/sqlite/SQLITE3AccountStore.js";
 import { createMockAccounts } from "./mock/MockData.js";
@@ -40,10 +39,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/", indexRouter);
-app.use("/auth", authRouter);
-
-// TODO: Add API (/user/id)
+app.use("/", routes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

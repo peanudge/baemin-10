@@ -8,9 +8,11 @@ header .right {
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--main-color);
+  cursor: pointer;
 }
 header .disabled {
   color: var(--disabled-color);
+  cursor: default;
 }
 
 main {
