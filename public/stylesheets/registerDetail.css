@@ -11,14 +11,10 @@
   position: relative;
 }
 
-header .left {
-  cursor: pointer;
-}
 header .right {
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--main-color);
-  cursor: pointer;
 }
 header .disabled {
   color: var(--disabled-color);
@@ -26,7 +22,7 @@ header .disabled {
 }
 
 main {
-  padding: 20px 16px;
+  padding: 20px 24px;
 }
 
 .input-container {

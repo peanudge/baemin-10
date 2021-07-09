@@ -12,6 +12,8 @@
 body {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
 div, h1, h2, h3, h4, h5, h6, button, a {
@@ -19,20 +21,38 @@ div, h1, h2, h3, h4, h5, h6, button, a {
 }
 
 .container {
+  position: relative;
   width: 100vw;
+  min-height: 100vh;
   background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
 }
 
 header {
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  height: 50px;
+  min-height: 50px;
   width: 100%;
   background-color: white;
   padding: 0 24px;
+  position: relative;
 }
+
+header > .left,
+header > .right {
+  position: absolute;
+  cursor: pointer;
+}
+header > .left {
+  left: 24px;
+}
+header > .right {
+  right: 24px;
+}
+
 
 .underline {
   border-bottom: 1px solid var(--background-color);

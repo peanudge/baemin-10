@@ -40,18 +40,21 @@ section {
 }
 .wide-button__title-container > .title {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .wide-button__title-container > .big {
   font-weight: 400;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: var(--sub-text-color);
+}
+.wide-button__title-container > .big > .username {
+  color: var(--text-color);
 }
 .wide-button__title-container > .green {
   color: var(--green-color);
 }
 .wide-button__title-container > .subtitle {
-  font-size: 14px;
+  font-size: 0.8rem;
   color: var(--sub-text-color);
   margin-top: 5px;
 }
@@ -65,7 +68,7 @@ section {
   margin-left: 5px;
   background-color: var(--pink-color);
   color: white;
-  font-size: 6px;
+  font-size: 0.4rem;
   padding: 4px;
   border-radius: 12px;
 }
@@ -102,7 +105,7 @@ section {
   margin-bottom: 5px;
 }
 .grid-button__text {
-  font-size: 10px;
+  font-size: 0.6rem;
   color: var(--sub-text-color);
 }
 

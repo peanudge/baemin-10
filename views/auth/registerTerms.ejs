@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/stylesheets/registerTerms.css" />
     <title>회원가입 - 약관동의</title>
     <script
       src="https://kit.fontawesome.com/3b8424c68a.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="/stylesheets/registerTerms.css" />
-    <script type="module" defer src="/javascripts/registerTerms/index.js"></script>
+    <script
+      type="module"
+      defer
+      src="/javascripts/registerTerms/index.js"
+    ></script>
   </head>
   <body>
     <div class="container">
@@ -27,7 +34,7 @@
         <form id="terms-container" class="terms-form" action="/auth/registerTerms" method="POST">
           <div class="check-container">
             <input type="checkbox" id="all-agree-checkbox" name="all-agree-checkbox" />
-            <label for="all-agree-checkbox"> 전체 동의 </label>
+            <label for="all-agree-checkbox">전체 동의</label>
           </div>
 
           <hr />
@@ -98,7 +105,6 @@
             <span class="error-msg"><%= errorMessage %></span>
           <% } %>
           <input id="terms-submit-btn" type="submit" class="next-step-btn" value="다음으로" disabled>
-          </button>
         </form>
       </main>
     </div>
