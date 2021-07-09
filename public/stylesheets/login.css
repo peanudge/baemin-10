@@ -31,7 +31,7 @@ main {
 .login-form {
   display: flex;
   flex-direction: column;
-  margin-top: 20%;
+  margin-top: 80px;
 }
 
 .login-form--id-input,
