@@ -1,73 +1,64 @@
 @import url("common/reset.css");
 @import url("common/mobile.css");
 
-:root {
-  --main-mint-color: #28c0bc;
-}
-
 /* mobile.css override */
-
-body {
-  align-items: flex-start;
-  height: 100vh;
-}
-
 .container {
-  position: relative;
   background-color: white;
-  height: 100%;
-  border: none;
-}
-
-header {
-  width: 100%;
-  height: 10%;
 }
 
 header > .left {
-  font-size: 3rem;
-  padding: 1rem;
+  font-size: 1rem;
 }
 
 .left--back-btn {
   text-decoration: none;
   color: black;
 }
-
 .left--back-btn:visited {
   color: black;
 }
 
 /* Style for Login */
+main {
+  box-sizing: border-box;
+  height: calc(100vh - 50px);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 
 .login-form {
   display: flex;
   flex-direction: column;
-  margin-top: 20%;
-  margin-right: 5%;
-  margin-left: 5%;
+  margin-top: 80px;
 }
 
 .login-form--id-input,
-.login-form--pw-input,
-.login-form--submit-btn {
-  margin: 2rem 0;
-  padding: 2rem;
-  font-size: 2rem;
+.login-form--pw-input {
+  margin: 8px 0;
+  padding: 12px 0;
+  font-size: 0.5rem;
   font-weight: bold;
   border-style: none;
-  border-bottom: 2px solid #c0c0c0;
+  border-bottom: 1px solid var(--sub-text-color);
+  font-size: 0.75rem;
+  color: var(--text-color);
+}
+.login-form--id-input::placeholder,
+.login-form--pw-input::placeholder {
+  color: var(--sub-text-color);
 }
 
 .login-form--id-input.error,
 .login-form--pw-input.error {
-  border-bottom: 2px solid var(--alert-color);
+  border-bottom: 1px solid var(--alert-color);
 }
 
 .login-form--id-warning-message,
 .login-form--pw-warning-message {
   color: var(--alert-color);
-  font-size: 2rem;
+  font-size: 0.8rem;
   visibility: collapse;
   text-align: center;
 }
@@ -78,9 +69,11 @@ header > .left {
 }
 
 .login-form--submit-btn {
-  background-color: var(--main-mint-color);
+  padding: 12px 0;
+  background-color: var(--main-color);
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 .auth-util {
@@ -91,39 +84,39 @@ header > .left {
 
 .auth-util--find-id-link,
 .auth-util--find-pw-link {
-  font-size: 2rem;
+  font-size: 0.8rem;
   color: #c0c0c0;
   padding: 10px;
 }
 
 .split-line {
   content: "|";
-  color: #c0c0c0;
-  font-size: 2rem;
+  color: var(--sub-text-color);
+  font-size: 0.8rem;
   padding: 10px;
 }
 
 footer {
   position: absolute;
   width: 100%;
-  bottom: 2rem;
+  bottom: 12px;
   display: flex;
   justify-content: center;
 }
 
 .register-comment {
-  font-size: 2rem;
-  color: #c0c0c0;
+  font-size: 0.8rem;
+  color: var(--sub-text-color);
 }
 
 .register-comment--link {
   text-decoration: none;
-  margin-left: 1rem;
+  margin-left: 6px;
   color: var(--main-color);
 }
 
 .login-form--result-msg {
   text-align: center;
   color: var(--pink-color);
-  font-size: 2rem;
+  font-size: 0.8rem;
 }

@@ -2,115 +2,96 @@
 @import url("common/mobile.css");
 
 /* mobile.css override */
-
-body {
-  align-items: flex-start;
-  height: 100vh;
-  margin: 0px 2rem;
-}
-
 .container {
-  position: relative;
   background-color: white;
-  border: none;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 main {
-  flex-grow: 1;
-}
-
-header {
-  position: relative;
   display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 10%;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 24px;
 }
 
 header > .left {
-  position: absolute;
-  left: 0;
-  font-size: 3rem;
-}
-
-header > .title {
-  font-size: 3rem;
-  padding: 1rem;
+  font-size: 1rem;
 }
 
 .left--back-btn {
-  display: flex;
-  justify-content: center;
-  text-align: center;
   text-decoration: none;
   color: black;
 }
-
 .left--back-btn:visited {
   color: black;
 }
 
 /* Style for Register Terms Page */
+form {
+  flex: 1;
+  display: block;
+}
 
 .welcome-message {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 2rem;
+  margin-bottom: 12px;
 }
 
 .welcome-message p {
-  margin-top: 2rem;
-  font-size: 3rem;
+  margin-top: 12px;
+  font-size: 1.1rem;
   font-weight: bold;
 }
 
 .check-container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  position: relative;
+  padding-top: 12px;
+  padding-bottom: 12px;
   display: flex;
 }
 
 .check-container > input[type="checkbox"] {
-  width: 3rem;
-  height: 3rem;
+  width: 18px;
+  height: 18px;
 }
 
 .check-container > label {
-  margin-left: 1rem;
-  font-size: 3rem;
-  color: black;
+  margin-left: 12px;
+  font-size: 1rem;
+  text-align: left;
+  color: var(--text-color);
+  transform: translateY(25%);
 }
 
 .check-container--detail-arrow {
   position: absolute;
-  right: 0px;
+  right: 0;
+  transform: translateY(25%);
   background-color: white;
   border-style: none;
-  font-size: 3rem;
+  font-size: 1rem;
 }
 
 .radio-container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 1rem;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 6px;
   display: flex;
   align-items: center;
   background-color: #f6f6f6;
-  border-radius: 15px;
-  margin-top: 20px;
+  border-radius: 10px;
+  margin-top: 12px;
+  min-height: 70px;
 }
 
 .radio-container > input[type="radio"] {
-  width: 3rem;
-  height: 3rem;
+  width: 18px;
+  height: 18px;
 }
 
 .radio-container > label {
-  margin-left: 1rem;
+  margin-left: 6px;
 }
 
 .radio-container--label {
@@ -120,25 +101,24 @@ header > .title {
 }
 
 .radio-container--label--title {
-  font-size: 3rem;
+  font-size: 1.1rem;
 }
 
 .radio-container--label--subtitle {
-  font-size: 2rem;
+  font-size: 0.8rem;
   color: gray;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .next-step-btn {
   position: absolute;
-  bottom: 10px;
-  width: 100%;
-  height: 8%;
-  border-radius: 15px;
-  border-style: none;
+  bottom: 16px;
+  width: calc(100% - 48px);
+  padding: 12px 0;
+  border-radius: 10px;
   background-color: var(--main-color);
   color: white;
-  font-size: 3rem;
+  font-size: 1rem;
 }
 
 .next-step-btn:disabled {
@@ -146,9 +126,9 @@ header > .title {
 }
 
 .error-msg {
-  margin-top: 1rem;
+  margin-top: 6px;
   display: block;
   text-align: center;
   color: var(--pink-color);
-  font-size: 2rem;
+  font-size: 0.8rem;
 }
